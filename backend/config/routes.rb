@@ -6,4 +6,9 @@ Rails.application.routes.draw do
 
   root to: 'addresses#index'
   resources :addresses
+
+  namespace "api", constraints: { format: 'json' } do
+    get "/addresses/search/:address", :to=>"addresses#search"
+  end
+
 end
