@@ -1,0 +1,17 @@
+<h1>Create new Address</h1>
+
+<div>
+  <%=form_for @new_address do |address_form|%>
+    <div>
+      <label>Address: </label><%= address_form.text_field :address%>
+    </div>
+
+    <div>
+      <!--Select should say none as blank option, but I haven't been able to make it-->
+      <%= address_form.collection_select :coverage_type_id, CoverageType.all, :id, :name, include_blank: true %>
+    </div>
+    <div>
+      <%= address_form.submit%>
+    </div>
+  <%end%>
+</div>

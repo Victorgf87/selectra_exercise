@@ -5,9 +5,9 @@ class AddressesController < ApplicationController
 
 
 
+  # Using index to show the list of addresses an user has
   def index
     @user_addresses = current_user.addresses
-    p "hey"
   end
 
   def new
@@ -16,6 +16,7 @@ class AddressesController < ApplicationController
 
   def create
     # TODO: check if address exists in real world with geocoder
+    # Wrong redirection, should check if address was not correct and show it in new view.
     new_address = current_user.addresses.new(address_params)
     new_address.save
     redirect_to action: :index
