@@ -1,6 +1,6 @@
-# Project Title
+# Addresses coverage
 
-One Paragraph of project description goes here
+Project that allows users check if a given Address is covered
 
 ## Getting Started
 
