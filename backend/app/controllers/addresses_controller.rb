@@ -7,6 +7,7 @@ class AddressesController < ApplicationController
 
   def index
     @user_addresses = current_user.addresses
+    p "hey"
   end
 
   def new
