@@ -11,6 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 ```
 ruby 2.5.0
 Rails 5.2.0
+rubyMine IDE
 
 ```
 
