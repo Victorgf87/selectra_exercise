@@ -64,6 +64,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'cancancan', '~> 2.0' #Cancan but for rails 5, previous gem is not maintained. https://github.com/CanCanCommunity/cancancan
 gem 'devise'   # For user sessions and accounts
 gem 'geocoder' # For addresses
-gem 'rack-cors'
+gem 'rack-cors' # For letting cross origin Resource Sharing. Basically allow connections from other domains.
 gem 'rails-controller-testing' #Helpers for testing using devise
 

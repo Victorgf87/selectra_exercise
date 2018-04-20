@@ -46,6 +46,52 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+<script>
+    //Variables so selectors are not called more than once
+    var label_to_change=$("#search-result");
+    var search_field_input=$("#search-field");
 
+    //Calls backend REST API with getJSON and then change label text.
+    var doSearch=function(parameter){
+        var url="http://localhost:4000/api/addresses/search/"+parameter;
+        $.getJSON( url, function( data ) {
+            label_to_change.text(data.message)
+        }).fail(function(data){
+            if(data.status == 404)
+            {
+                label_to_change.text("Address not found")
+            }
+        });
+
+    };
+
+    //Just shows empty text in the label
+    var showEmptyText=function(){
+        label_to_change.text("Results will be displayed here");
+    };
+
+
+    //When document gets ready, it's time to do everything.
+    //I chose to solve the exercise in a more fluid way than just sending the search with a button.
+    //Each time the user adds text to the search textbox, it calls the api
+    $( document ).ready(function() {
+
+        showEmptyText();
+        search_field_input.keyup(function(updatedText){
+            if(search_field_input.val() === "")
+            {
+                showEmptyText();
+            }
+            else
+            {
+                doSearch($("#search-field").val());
+            }
+
+        });
+    });
+
+
+
+</script>
 </body>
 </html>
