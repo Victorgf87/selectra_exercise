@@ -1,5 +1,5 @@
 class AddressesController < ApplicationController
-  before_action :authenticate_user  # First, we use devise to return user to root if they are not authenticated
+  before_action :authenticate_user!  # First, we use devise to return user to root if they are not authenticated
   before_action :prevent_not_found, :only => [:show, :edit, :update, :destroy]
   load_and_authorize_resource :address #From cancan, it creates a @address object from params[:id]
 
