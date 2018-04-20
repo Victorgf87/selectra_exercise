@@ -7,4 +7,6 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  include Devise::Test::IntegrationHelpers # This is to make sign_in method available
 end

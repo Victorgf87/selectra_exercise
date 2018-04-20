@@ -4,8 +4,7 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+of_one: {address: "Calle Rafael Herrero 4, Madrid", user: one}
+of_two: {address: "Calle Juan Guerrero Urreisti 1024, Santander", user: two}
 # column: value
 #
-two: {}
-# column: value
