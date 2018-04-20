@@ -2,3 +2,11 @@
 
 <%=link_to "New address", new_address_path%>
 
+<% @user_addresses.each do |user_address| %>
+  <div>
+    <div><label>Address:</label> <%= user_address.address %></div>
+    <div><label> Coverage: <%= user_address.coverage_name %></label></div>
+  </div>
+  <div><%= button_to "Delete", user_address, :method => :delete %><%= link_to "Edit", edit_address_path(user_address) %></div>
+  <br/><br/>
+<% end %>
