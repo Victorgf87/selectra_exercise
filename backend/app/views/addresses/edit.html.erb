@@ -1,0 +1,15 @@
+<% # I would use same partial view to render a form for new and edit, but for speed sake, I do this %>
+
+<%=form_for @address do |address_form|%>
+  <div>
+    <label>Address</label>
+    <%=address_form.text_field :address%>
+  </div>
+  <div>
+    <!--Select should say none as blank option, but I haven't been able to figure out how to it-->
+    <%= address_form.collection_select :coverage_type_id, CoverageType.all, :id, :name, include_blank: true %>
+  </div>
+  <div>
+    <%=address_form.submit "Update"%>
+  </div>
+<%end%>
